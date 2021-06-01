@@ -15,15 +15,13 @@
 
 void test_readfile()
 {
-   std::string path = "text.txt";
-   std::string expect = R"(Hello World!
-How are you?
-   What are you doing?)";
-   
+   std::string path = "include/tests/text.txt";
+   std::string expect = " Hello World!";
+
    // Test
    assert(readfile(path) == expect);
 
-   std::cout << "Test function 'readfile' successful." << std::endl;
+   std::cout << "\033[;32mTest function 'readfile' successful.\033[0m" << std::endl;
 }
 
 #endif //TEST_FILE_READER_HPP

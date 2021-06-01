@@ -18,8 +18,8 @@ inline std::string readfile(const std::string &path)
    // Open file with data
    std::ifstream file(path);
    // Read all data from file
-   std::string data{std::istreambuf_iterator<char>{file},
-                    std::istreambuf_iterator<char>{}};
+   std::string data((std::istreambuf_iterator<char>{file}),
+                    std::istreambuf_iterator<char>());   
    //Close file
    file.close();
    // Return string with data
