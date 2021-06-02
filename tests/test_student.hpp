@@ -5,15 +5,15 @@
 */
 
 #pragma once
-#ifndef TEST_STRUCT_HPP
-#define TEST_STRUCT_HPP
+#ifndef TEST_STUDENT_HPP
+#define TEST_STUDENT_HPP
 
 #include <iostream>
 #include <cassert>
 
-#include "../struct/struct.hpp"
+#include "../include/student/student.hpp"
 
-void test_struct()
+void test_student()
 {
    // Test 1
    Student s1;
@@ -50,4 +50,4 @@ void test_struct()
    std::cout << "\033[;32mTest class 'Student' successful.\033[0m" << std::endl;
 }
 
-#endif //TEST_STRUCT_HPP
+#endif //TEST_STUDENT_HPP

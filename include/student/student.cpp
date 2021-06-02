@@ -1,4 +1,4 @@
-#include "struct.hpp"
+#include "student.hpp"
 
 Student::Student() : m_name(""), m_surname(""), m_avg_mark(0.0), m_att_lessons(0)
 {
@@ -11,6 +11,12 @@ Student::Student(const std::initializer_list<Args...> &args)
    m_surname = args[1];
    m_avg_mark = args[2];
    m_att_lessons = args[3];
+}
+
+Student::Student(const Student &other)
+{
+   Student tmp(other);
+   swap(*this, tmp);
 }
 
 Student::Student(const std::string &name, const std::string &surname,
@@ -59,4 +65,25 @@ long double Student::getAvgMark() const
 int Student::getAttLessons() const
 {
    return m_att_lessons;
+}
+
+// Swap
+void swap(Student &a, Student &b) noexcept
+{
+   using std::swap;
+   swap(a.m_name, b.m_name);
+   swap(a.m_surname, b.m_surname);
+   swap(a.m_avg_mark, b.m_avg_mark);
+   swap(a.m_att_lessons, b.m_att_lessons);
+}
+
+// Operator
+Student &Student::operator=(const Student &other)
+{
+   if (&other != this)
+   {
+      Student tmp(other);
+      swap(*this, tmp);
+   }
+   return *this;
 }

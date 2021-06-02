@@ -4,6 +4,7 @@
 
 // C++
 #include <string>
+#include <utility>
 #include <initializer_list>
 
 class Student
@@ -12,6 +13,7 @@ public:
    Student();
    template <typename... Args>
    Student(const std::initializer_list<Args...> &args);
+   Student(const Student &other);
    Student(const std::string &name, const std::string &surname,
            const long double &avg_mark, const int &att_lessons);
    ~Student() = default;
@@ -27,6 +29,11 @@ public:
    std::string getSurname() const;
    long double getAvgMark() const;
    int getAttLessons() const;
+
+   friend void swap(Student &a, Student &b);
+
+   // Operator
+   Student &operator=(const Student &other) noexcept;
 
 private:
    std::string m_name;

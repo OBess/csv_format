@@ -2,18 +2,17 @@
 #include <iostream>
 
 // Custom
-#include "include/struct/struct.hpp"
-#include "include/file_reader/file_reader.hpp"
+#include "include/student/student.hpp"
+#include "include/parser/parser.hpp"
 
 // Tests
-#include "include/tests/test_struct.hpp"
-#include "include/tests/test_file_reader.hpp"
+#include "tests/test_student.hpp"
 
 int main()
 {
    // Tests
-   test_struct();
-   test_readfile();
+   test_student();
+   
 
    
 
