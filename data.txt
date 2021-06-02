@@ -1,3 +1,11 @@
 Grigorii,Skovoroda,3.56348756,5
 Taras,Shevchenko,4,5
-Hose,De San-Martin, 4.9,9
+Hose,De San-Martin, 4.9,4
+Oliver,Martin, 3.14,12
+Ava,Dubois, 5.0,5
+Isabella,Durand, 3.23454,7
+Charlotte,Kapanadze, 2.68765,4
+Alexander,Maisuradze, 4.234,5
+Benjamin,Bolkvadze, 4.56,6
+Harper,Lindholm, 1.455,7
+Henry,Savolainen, 1.9,3

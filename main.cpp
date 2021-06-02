@@ -4,17 +4,14 @@
 // Custom
 #include "include/student/student.hpp"
 #include "include/parser/parser.hpp"
-
-// Tests
-#include "tests/test_student.hpp"
-#include "tests/test_parser.hpp"
+#include "include/table/table.hpp"
 
 int main()
 {
-   // Tests
-   test_student();
-   test_parsing();
-   
+   // Main
+   const std::string path = "data.txt";
+   const auto parsed = parser::parsing(path);
+   table::output(parsed);
 
    return EXIT_SUCCESS;
 }
