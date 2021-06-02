@@ -1,89 +1,59 @@
 #include "student.hpp"
 
-Student::Student() : m_name(""), m_surname(""), m_avg_mark(0.0), m_att_lessons(0)
+student::student() : m_name(""), m_surname(""), m_avg_mark(0.0), m_att_lessons(0)
 {
 }
 
-template <typename... Args>
-Student::Student(const std::initializer_list<Args...> &args)
+student::student(const student &other)
+    : m_name(other.m_name), m_surname(other.m_surname),
+      m_avg_mark(other.m_avg_mark), m_att_lessons(other.m_att_lessons)
 {
-   m_name = args[0];
-   m_surname = args[1];
-   m_avg_mark = args[2];
-   m_att_lessons = args[3];
 }
 
-Student::Student(const Student &other)
-{
-   Student tmp(other);
-   swap(*this, tmp);
-}
-
-Student::Student(const std::string &name, const std::string &surname,
+student::student(const std::string &name, const std::string &surname,
                  const long double &avg_mark, const int &att_lessons)
     : m_name(name), m_surname(surname), m_avg_mark(avg_mark), m_att_lessons(att_lessons)
 {
 }
 
 // Setters
-void Student::setName(const std::string &name)
+void student::setName(const std::string &name)
 {
    m_name = name;
 }
 
-void Student::setSurname(const std::string &surname)
+void student::setSurname(const std::string &surname)
 {
    m_surname = surname;
 }
 
-void Student::setAvgMark(const long double &avg_mark)
+void student::setAvgMark(const long double &avg_mark)
 {
    m_avg_mark = avg_mark;
 }
 
-void Student::setAttLessons(const int &att_lessons)
+void student::setAttLessons(const int &att_lessons)
 {
    m_att_lessons = att_lessons;
 }
 
 // Getters
-std::string Student::getName() const
+std::string student::getName() const
 {
    return m_name;
 }
 
-std::string Student::getSurname() const
+std::string student::getSurname() const
 {
    return m_surname;
 }
 
-long double Student::getAvgMark() const
+long double student::getAvgMark() const
 {
    return m_avg_mark;
 }
 
-int Student::getAttLessons() const
+int student::getAttLessons() const
 {
    return m_att_lessons;
-}
-
-// Swap
-void swap(Student &a, Student &b) noexcept
-{
-   using std::swap;
-   swap(a.m_name, b.m_name);
-   swap(a.m_surname, b.m_surname);
-   swap(a.m_avg_mark, b.m_avg_mark);
-   swap(a.m_att_lessons, b.m_att_lessons);
-}
-
-// Operator
-Student &Student::operator=(const Student &other)
-{
-   if (&other != this)
-   {
-      Student tmp(other);
-      swap(*this, tmp);
-   }
-   return *this;
 }

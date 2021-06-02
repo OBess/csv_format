@@ -8,22 +8,55 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <sstream>
 
-class parser
+// Custom
+#include "../student/student.hpp"
+
+// Define
+#define DELIMITER ','
+
+namespace parser
 {
-public:
-   parser() = default;
-   ~parser() = default;
 
-   parser(const parser &) = delete;
-   parser &operator=(const parser &) = delete;
+   namespace
+   {
+      inline student get_student(const std::string &data)
+      {
+         std::istringstream tokenizer(data);
+         std::string word;
+         student s;
 
-   std::vector<> parsing(const std::string& path) const;
+         std::getline(tokenizer, word, DELIMITER);
+         s.setName(word);
+         std::getline(tokenizer, word, DELIMITER);
+         s.setSurname(word);
+         std::getline(tokenizer, word, DELIMITER);
+         s.setAvgMark(std::stold(word));
+         std::getline(tokenizer, word);
+         s.setAttLessons(std::stoi(word));
 
-private:
-   inline std::string _readfile(const std::string &path);
+         return s;
+      }
+   }
 
-   std::string m_path;
+   std::vector<student> parsing(const std::string &path)
+   {
+      // Read data
+      std::ifstream file(path);
+
+      // Vector with final result
+      std::vector<student> v;
+      std::string line;
+
+      // Getting objects
+      while (std::getline(file, line))
+         v.push_back(get_student(line));
+
+      file.close();
+      // Return vector of students
+      return v;
+   }
 };
 
 #endif //PARSER_HPP
