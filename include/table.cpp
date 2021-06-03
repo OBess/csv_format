@@ -4,7 +4,7 @@ void table::output(const std::vector<student> &v)
 {
    // Main variable for table
    char sign = '+';
-   const std::string succeeded = "Succeded", name = "Name", surname = "Surname", avg = "Avg mark", attended = "Attended";
+   const std::string succeeded = "Succeeded", name = "Name", surname = "Surname", avg = "Avg mark", attended = "Attended";
    size_t size_name = name.length(), size_surname = surname.length();
 
    // Find values for variables
