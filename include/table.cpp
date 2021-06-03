@@ -4,7 +4,8 @@ void table::output(const std::vector<student> &v)
 {
    // Main variable for table
    char sign = '+';
-   size_t size_name = 0, size_surname = 0;
+   const std::string succeeded = "Succeded", name = "Name", surname = "Surname", avg = "Avg mark", attended = "Attended";
+   size_t size_name = name.length(), size_surname = surname.length();
 
    // Find values for variables
    for (const auto &el : v)
@@ -18,7 +19,6 @@ void table::output(const std::vector<student> &v)
    }
 
    // Display header
-   const std::string succeeded = "Succeded", name = "Name", surname = "Surname", avg = "Avg mark", attended = "Attended";
    std::printf("%s %*s %*s %s %s\n", succeeded.c_str(), -(int)size_name, name.c_str(), -(int)size_surname, surname.c_str(), avg.c_str(), attended.c_str());
 
    // Display records
